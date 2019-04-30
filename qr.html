@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>QR code page</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/javascript">
+            function generateBarCode()
+            {
+                var nric = $('#text').val();
+                var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + nric + '&amp;size=50x50';
+                $('#barcode').attr('src', url);
+            }
+        </script>
+<style>
+input[type=text] {
+  padding: 0;
+  height: 30px;
+  position: relative;
+  left: 0;
+  outline: none;
+  border: 1px solid #cdcdcd;
+  border-color: rgba(0, 0, 0, .15);
+  background-color: white;
+  font-size: 16px;
+}
+
+.Textbox {
+  width: 526px;
+  margin-right: -4px;
+}
+body {background-color: #26406b;}
+.custom {
+	font-family: Geneva;
+	color: grey;
+	font-size:20px;
+}
+.header {
+	font-family:Palatino Linotype, Book Antiqua, Palatino, serif ;
+	color: white;
+	font-size:40px;
+}
+</style>
+    </head>
+    <body>
+<p class="header">WELCOME TO QRCODE GENERATOR!!</p>
+<h1>Few steps and you are good to go!</h1>
+<p class="custom">
+<ol><li>Write or paste your link on the textbox provided below.</li>
+<li>Click anywhere on the page, and wait for the QRcode to change.</li>
+<li>A fter it has change right click on the image, and click on "Save image as" to save it to your drive.</li></ol></p>
+        <input id="text" type="text" class="TextBox" 
+            value="Paste Here" style="Width:20%"
+            onblur='generateBarCode();' /> 
+
+      <img id='barcode' 
+            src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" 
+            alt="" 
+            title="Number1" 
+            width="100" 
+            height="100" />
+    </body>
+</html>
